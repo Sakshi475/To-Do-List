@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To do list</title>
+    <link rel="stylesheet" href="style.css">
+ 
+</head>
+
+<body>
+    <div class="container">
+        <br>
+        <h1>To-Do List</h1>
+        <br><br><br>
+        <input type="text" id="itemInput" placeholder="Type something...">
+        <br>
+        <button onclick="add()">Add to Wishlist</button>
+        <div class="itemlist">
+
+        </div>
+    </div>
+    <script>
+        let Input = document.getElementById("itemInput");
+        let text = document.querySelector(".itemlist");
+        function add() {
+            if (Input.value == "") {
+                alert("enter the task");
+            }
+            else {
+                let newElement = document.createElement("li");
+                newElement.innerHTML = `${Input.value} <i><svg xmlns="http://www.w3.org/2000/svg" height="15px" viewBox="0 -960 960 960" width="15px" fill="#321D71"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg></i> `;
+                text.appendChild(newElement);
+                Input.value = "";
+
+                newElement.querySelector("i").addEventListener("click", remove);
+                function remove() {
+                    newElement.remove();
+                }
+               
+
+
+
+
+            }
+        }
+    </script>
+</body>
+
+</html>
